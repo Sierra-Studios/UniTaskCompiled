@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{659CAD28-1D95-46CC-AA95-360904238B34}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>UniTaskCompiled</RootNamespace>
+        <AssemblyName>UniTaskCompiled</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+	<Reference Include="Unity.Burst">
+    <HintPath>$(LTSL_REFS)\Unity.Burst.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.Burst.Unsafe">
+    <HintPath>$(LTSL_REFS)\Unity.Burst.Unsafe.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.Collections">
+    <HintPath>$(LTSL_REFS)\Unity.Collections.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.Collections.LowLevel.ILSupport">
+    <HintPath>$(LTSL_REFS)\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.Mathematics">
+    <HintPath>$(LTSL_REFS)\Unity.Mathematics.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.ProBuilder.Csg">
+    <HintPath>$(LTSL_REFS)\Unity.ProBuilder.Csg.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.ProBuilder">
+    <HintPath>$(LTSL_REFS)\Unity.ProBuilder.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.ProBuilder.KdTree">
+    <HintPath>$(LTSL_REFS)\Unity.ProBuilder.KdTree.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.ProBuilder.Poly2Tri">
+    <HintPath>$(LTSL_REFS)\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.ProBuilder.Stl">
+    <HintPath>$(LTSL_REFS)\Unity.ProBuilder.Stl.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.Rendering.LightTransport.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.Core.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+    <HintPath>$(LTSL_REFS)\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.TextMeshPro">
+    <HintPath>$(LTSL_REFS)\Unity.TextMeshPro.dll</HintPath>
+  </Reference>
+  <Reference Include="Unity.VisualEffectGraph.Runtime">
+    <HintPath>$(LTSL_REFS)\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AccessibilityModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AccessibilityModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AMDModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AMDModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AndroidJNIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AndroidJNIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AnimationModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AnimationModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ARModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ARModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AssetBundleModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AssetBundleModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.AudioModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.AudioModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ClothModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ClothModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ClusterInputModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ClusterInputModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ClusterRendererModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ClusterRendererModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ContentLoadModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ContentLoadModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.CoreModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.CoreModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.CrashReportingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.CrashReportingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.DirectorModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.DirectorModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine">
+    <HintPath>$(LTSL_REFS)\UnityEngine.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.DSPGraphModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.DSPGraphModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.GameCenterModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.GameCenterModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.GIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.GIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.GraphicsStateCollectionSerializerModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.GraphicsStateCollectionSerializerModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.GridModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.GridModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.HierarchyCoreModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.HierarchyCoreModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.HotReloadModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.HotReloadModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ImageConversionModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ImageConversionModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.IMGUIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.IMGUIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.InputForUIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.InputForUIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.InputLegacyModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.InputLegacyModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.InputModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.InputModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.JSONSerializeModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.JSONSerializeModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.LocalizationModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.LocalizationModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.MarshallingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.MarshallingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.MultiplayerModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.MultiplayerModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.NVIDIAModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.NVIDIAModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ParticleSystemModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ParticleSystemModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.PerformanceReportingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.PerformanceReportingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.Physics2DModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.Physics2DModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.PhysicsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.PhysicsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.PropertiesModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.PropertiesModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ScreenCaptureModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ScreenCaptureModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.ShaderVariantAnalyticsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.ShaderVariantAnalyticsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.SharedInternalsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.SharedInternalsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.SpriteMaskModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.SpriteMaskModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.SpriteShapeModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.SpriteShapeModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.StreamingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.StreamingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.SubstanceModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.SubstanceModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.SubsystemsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.SubsystemsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TerrainModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TerrainModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TerrainPhysicsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TextCoreFontEngineModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TextCoreTextEngineModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TextRenderingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TextRenderingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TilemapModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TilemapModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.TLSModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.TLSModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UI">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UI.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UIElementsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UIElementsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UIModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UIModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UmbraModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UmbraModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityAnalyticsModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityConnectModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityConnectModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityCurlModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityCurlModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityTestProtocolModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityWebRequestModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityWebRequestModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.VehiclesModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.VehiclesModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.VFXModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.VFXModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.VideoModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.VideoModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.VirtualTexturingModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.VirtualTexturingModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.VRModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.VRModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.WindModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.WindModule.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.XRModule">
+    <HintPath>$(LTSL_REFS)\UnityEngine.XRModule.dll</HintPath>
+  </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Class1.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="RunTime\AsyncLazy.cs" />
+        <Compile Include="RunTime\AsyncReactiveProperty.cs" />
+        <Compile Include="RunTime\AsyncUnit.cs" />
+        <Compile Include="RunTime\CancellationTokenEqualityComparer.cs" />
+        <Compile Include="RunTime\CancellationTokenExtensions.cs" />
+        <Compile Include="RunTime\CancellationTokenSourceExtensions.cs" />
+        <Compile Include="RunTime\Channel.cs" />
+        <Compile Include="RunTime\CompilerServices\AsyncMethodBuilderAttribute.cs" />
+        <Compile Include="RunTime\CompilerServices\AsyncUniTaskMethodBuilder.cs" />
+        <Compile Include="RunTime\CompilerServices\AsyncUniTaskVoidMethodBuilder.cs" />
+        <Compile Include="RunTime\CompilerServices\StateMachineRunner.cs" />
+        <Compile Include="RunTime\EnumerableAsyncExtensions.cs" />
+        <Compile Include="RunTime\EnumeratorAsyncExtensions.cs" />
+        <Compile Include="RunTime\ExceptionExtensions.cs" />
+        <Compile Include="RunTime\External\Addressables\AddressablesAsyncExtensions.cs" />
+        <Compile Include="RunTime\External\DOTween\DOTweenAsyncExtensions.cs" />
+        <Compile Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.cs" />
+        <Compile Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.InputField.cs" />
+        <Compile Include="RunTime\Internal\ArrayPool.cs" />
+        <Compile Include="RunTime\Internal\ArrayPoolUtil.cs" />
+        <Compile Include="RunTime\Internal\ArrayUtil.cs" />
+        <Compile Include="RunTime\Internal\ContinuationQueue.cs" />
+        <Compile Include="RunTime\Internal\DiagnosticsExtensions.cs" />
+        <Compile Include="RunTime\Internal\Error.cs" />
+        <Compile Include="RunTime\Internal\MinimumQueue.cs" />
+        <Compile Include="RunTime\Internal\PlayerLoopRunner.cs" />
+        <Compile Include="RunTime\Internal\PooledDelegate.cs" />
+        <Compile Include="RunTime\Internal\RuntimeHelpersAbstraction.cs" />
+        <Compile Include="RunTime\Internal\StatePool.cs" />
+        <Compile Include="RunTime\Internal\TaskTracker.cs" />
+        <Compile Include="RunTime\Internal\UnityEqualityComparer.cs" />
+        <Compile Include="RunTime\Internal\UnityWebRequestExtensions.cs" />
+        <Compile Include="RunTime\Internal\ValueStopwatch.cs" />
+        <Compile Include="RunTime\Internal\WeakDictionary.cs" />
+        <Compile Include="RunTime\IUniTaskAsyncEnumerable.cs" />
+        <Compile Include="RunTime\IUniTaskSource.cs" />
+        <Compile Include="RunTime\Linq\Aggregate.cs" />
+        <Compile Include="RunTime\Linq\All.cs" />
+        <Compile Include="RunTime\Linq\Any.cs" />
+        <Compile Include="RunTime\Linq\AppendPrepend.cs" />
+        <Compile Include="RunTime\Linq\AsUniTaskAsyncEnumerable.cs" />
+        <Compile Include="RunTime\Linq\AsyncEnumeratorBase.cs" />
+        <Compile Include="RunTime\Linq\Average.cs" />
+        <Compile Include="RunTime\Linq\Buffer.cs" />
+        <Compile Include="RunTime\Linq\Cast.cs" />
+        <Compile Include="RunTime\Linq\CombineLatest.cs" />
+        <Compile Include="RunTime\Linq\Concat.cs" />
+        <Compile Include="RunTime\Linq\Contains.cs" />
+        <Compile Include="RunTime\Linq\Count.cs" />
+        <Compile Include="RunTime\Linq\Create.cs" />
+        <Compile Include="RunTime\Linq\DefaultIfEmpty.cs" />
+        <Compile Include="RunTime\Linq\Distinct.cs" />
+        <Compile Include="RunTime\Linq\DistinctUntilChanged.cs" />
+        <Compile Include="RunTime\Linq\Do.cs" />
+        <Compile Include="RunTime\Linq\ElementAt.cs" />
+        <Compile Include="RunTime\Linq\Empty.cs" />
+        <Compile Include="RunTime\Linq\Except.cs" />
+        <Compile Include="RunTime\Linq\First.cs" />
+        <Compile Include="RunTime\Linq\ForEach.cs" />
+        <Compile Include="RunTime\Linq\GroupBy.cs" />
+        <Compile Include="RunTime\Linq\GroupJoin.cs" />
+        <Compile Include="RunTime\Linq\Intersect.cs" />
+        <Compile Include="RunTime\Linq\Join.cs" />
+        <Compile Include="RunTime\Linq\Last.cs" />
+        <Compile Include="RunTime\Linq\LongCount.cs" />
+        <Compile Include="RunTime\Linq\Max.cs" />
+        <Compile Include="RunTime\Linq\Merge.cs" />
+        <Compile Include="RunTime\Linq\Min.cs" />
+        <Compile Include="RunTime\Linq\MinMax.cs" />
+        <Compile Include="RunTime\Linq\Never.cs" />
+        <Compile Include="RunTime\Linq\OfType.cs" />
+        <Compile Include="RunTime\Linq\OrderBy.cs" />
+        <Compile Include="RunTime\Linq\Pairwise.cs" />
+        <Compile Include="RunTime\Linq\Publish.cs" />
+        <Compile Include="RunTime\Linq\Queue.cs" />
+        <Compile Include="RunTime\Linq\Range.cs" />
+        <Compile Include="RunTime\Linq\Repeat.cs" />
+        <Compile Include="RunTime\Linq\Return.cs" />
+        <Compile Include="RunTime\Linq\Reverse.cs" />
+        <Compile Include="RunTime\Linq\Select.cs" />
+        <Compile Include="RunTime\Linq\SelectMany.cs" />
+        <Compile Include="RunTime\Linq\SequenceEqual.cs" />
+        <Compile Include="RunTime\Linq\Single.cs" />
+        <Compile Include="RunTime\Linq\Skip.cs" />
+        <Compile Include="RunTime\Linq\SkipLast.cs" />
+        <Compile Include="RunTime\Linq\SkipUntil.cs" />
+        <Compile Include="RunTime\Linq\SkipUntilCanceled.cs" />
+        <Compile Include="RunTime\Linq\SkipWhile.cs" />
+        <Compile Include="RunTime\Linq\Subscribe.cs" />
+        <Compile Include="RunTime\Linq\Sum.cs" />
+        <Compile Include="RunTime\Linq\Take.cs" />
+        <Compile Include="RunTime\Linq\TakeLast.cs" />
+        <Compile Include="RunTime\Linq\TakeUntil.cs" />
+        <Compile Include="RunTime\Linq\TakeUntilCanceled.cs" />
+        <Compile Include="RunTime\Linq\TakeWhile.cs" />
+        <Compile Include="RunTime\Linq\Throw.cs" />
+        <Compile Include="RunTime\Linq\ToArray.cs" />
+        <Compile Include="RunTime\Linq\ToDictionary.cs" />
+        <Compile Include="RunTime\Linq\ToHashSet.cs" />
+        <Compile Include="RunTime\Linq\ToList.cs" />
+        <Compile Include="RunTime\Linq\ToLookup.cs" />
+        <Compile Include="RunTime\Linq\ToObservable.cs" />
+        <Compile Include="RunTime\Linq\ToUniTaskAsyncEnumerable.cs" />
+        <Compile Include="RunTime\Linq\Union.cs" />
+        <Compile Include="RunTime\Linq\UnityExtensions\EveryUpdate.cs" />
+        <Compile Include="RunTime\Linq\UnityExtensions\EveryValueChanged.cs" />
+        <Compile Include="RunTime\Linq\UnityExtensions\Timer.cs" />
+        <Compile Include="RunTime\Linq\Where.cs" />
+        <Compile Include="RunTime\Linq\Zip.cs" />
+        <Compile Include="RunTime\MoveNextSource.cs" />
+        <Compile Include="RunTime\PlayerLoopHelper.cs" />
+        <Compile Include="RunTime\PlayerLoopTimer.cs" />
+        <Compile Include="RunTime\Progress.cs" />
+        <Compile Include="RunTime\TaskPool.cs" />
+        <Compile Include="RunTime\TimeoutController.cs" />
+        <Compile Include="RunTime\TriggerEvent.cs" />
+        <Compile Include="RunTime\Triggers\AsyncAwakeTrigger.cs" />
+        <Compile Include="RunTime\Triggers\AsyncDestroyTrigger.cs" />
+        <Compile Include="RunTime\Triggers\AsyncStartTrigger.cs" />
+        <Compile Include="RunTime\Triggers\AsyncTriggerBase.cs" />
+        <Compile Include="RunTime\Triggers\AsyncTriggerExtensions.cs" />
+        <Compile Include="RunTime\Triggers\MonoBehaviourMessagesTriggers.cs" />
+        <Compile Include="RunTime\UniTask.AsValueTask.cs" />
+        <Compile Include="RunTime\UniTask.Bridge.cs" />
+        <Compile Include="RunTime\UniTask.cs" />
+        <Compile Include="RunTime\UniTask.Delay.cs" />
+        <Compile Include="RunTime\UniTask.Factory.cs" />
+        <Compile Include="RunTime\UniTask.Run.cs" />
+        <Compile Include="RunTime\UniTask.Threading.cs" />
+        <Compile Include="RunTime\UniTask.WaitUntil.cs" />
+        <Compile Include="RunTime\UniTask.WhenAll.cs" />
+        <Compile Include="RunTime\UniTask.WhenAll.Generated.cs" />
+        <Compile Include="RunTime\UniTask.WhenAny.cs" />
+        <Compile Include="RunTime\UniTask.WhenAny.Generated.cs" />
+        <Compile Include="RunTime\UniTask.WhenEach.cs" />
+        <Compile Include="RunTime\UniTaskCompletionSource.cs" />
+        <Compile Include="RunTime\UniTaskExtensions.cs" />
+        <Compile Include="RunTime\UniTaskExtensions.Shorthand.cs" />
+        <Compile Include="RunTime\UniTaskObservableExtensions.cs" />
+        <Compile Include="RunTime\UniTaskScheduler.cs" />
+        <Compile Include="RunTime\UniTaskSynchronizationContext.cs" />
+        <Compile Include="RunTime\UniTaskVoid.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.AssetBundleRequestAllAssets.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.AsyncGPUReadback.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.AsyncInstantiate.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.Jobs.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.MonoBehaviour.cs" />
+        <Compile Include="RunTime\UnityAsyncExtensions.uGUI.cs" />
+        <Compile Include="RunTime\UnityAwaitableExtensions.cs" />
+        <Compile Include="RunTime\UnityBindingExtensions.cs" />
+        <Compile Include="RunTime\UnityWebRequestException.cs" />
+        <Compile Include="RunTime\_InternalVisibleTo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="RunTime\AsyncLazy.cs.meta" />
+      <Content Include="RunTime\AsyncReactiveProperty.cs.meta" />
+      <Content Include="RunTime\AsyncUnit.cs.meta" />
+      <Content Include="RunTime\CancellationTokenEqualityComparer.cs.meta" />
+      <Content Include="RunTime\CancellationTokenExtensions.cs.meta" />
+      <Content Include="RunTime\CancellationTokenSourceExtensions.cs.meta" />
+      <Content Include="RunTime\Channel.cs.meta" />
+      <Content Include="RunTime\CompilerServices.meta" />
+      <Content Include="RunTime\CompilerServices\AsyncMethodBuilderAttribute.cs.meta" />
+      <Content Include="RunTime\CompilerServices\AsyncUniTaskMethodBuilder.cs.meta" />
+      <Content Include="RunTime\CompilerServices\AsyncUniTaskVoidMethodBuilder.cs.meta" />
+      <Content Include="RunTime\CompilerServices\StateMachineRunner.cs.meta" />
+      <Content Include="RunTime\EnumerableAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\EnumeratorAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\ExceptionExtensions.cs.meta" />
+      <Content Include="RunTime\External.meta" />
+      <Content Include="RunTime\External\Addressables.meta" />
+      <Content Include="RunTime\External\Addressables\AddressablesAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\External\Addressables\UniTask.Addressables.asmdef" />
+      <Content Include="RunTime\External\Addressables\UniTask.Addressables.asmdef.meta" />
+      <Content Include="RunTime\External\DOTween.meta" />
+      <Content Include="RunTime\External\DOTween\DOTweenAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\External\DOTween\UniTask.DOTween.asmdef" />
+      <Content Include="RunTime\External\DOTween\UniTask.DOTween.asmdef.meta" />
+      <Content Include="RunTime\External\TextMeshPro.meta" />
+      <Content Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.InputField.cs.meta" />
+      <Content Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.InputField.tt" />
+      <Content Include="RunTime\External\TextMeshPro\TextMeshProAsyncExtensions.InputField.tt.meta" />
+      <Content Include="RunTime\External\TextMeshPro\UniTask.TextMeshPro.asmdef" />
+      <Content Include="RunTime\External\TextMeshPro\UniTask.TextMeshPro.asmdef.meta" />
+      <Content Include="RunTime\Internal.meta" />
+      <Content Include="RunTime\Internal\ArrayPool.cs.meta" />
+      <Content Include="RunTime\Internal\ArrayPoolUtil.cs.meta" />
+      <Content Include="RunTime\Internal\ArrayUtil.cs.meta" />
+      <Content Include="RunTime\Internal\ContinuationQueue.cs.meta" />
+      <Content Include="RunTime\Internal\DiagnosticsExtensions.cs.meta" />
+      <Content Include="RunTime\Internal\Error.cs.meta" />
+      <Content Include="RunTime\Internal\MinimumQueue.cs.meta" />
+      <Content Include="RunTime\Internal\PlayerLoopRunner.cs.meta" />
+      <Content Include="RunTime\Internal\PooledDelegate.cs.meta" />
+      <Content Include="RunTime\Internal\RuntimeHelpersAbstraction.cs.meta" />
+      <Content Include="RunTime\Internal\StatePool.cs.meta" />
+      <Content Include="RunTime\Internal\TaskTracker.cs.meta" />
+      <Content Include="RunTime\Internal\UnityEqualityComparer.cs.meta" />
+      <Content Include="RunTime\Internal\UnityWebRequestExtensions.cs.meta" />
+      <Content Include="RunTime\Internal\ValueStopwatch.cs.meta" />
+      <Content Include="RunTime\Internal\WeakDictionary.cs.meta" />
+      <Content Include="RunTime\IUniTaskAsyncEnumerable.cs.meta" />
+      <Content Include="RunTime\IUniTaskSource.cs.meta" />
+      <Content Include="RunTime\Linq.meta" />
+      <Content Include="RunTime\Linq\Aggregate.cs.meta" />
+      <Content Include="RunTime\Linq\All.cs.meta" />
+      <Content Include="RunTime\Linq\Any.cs.meta" />
+      <Content Include="RunTime\Linq\AppendPrepend.cs.meta" />
+      <Content Include="RunTime\Linq\AsUniTaskAsyncEnumerable.cs.meta" />
+      <Content Include="RunTime\Linq\AsyncEnumeratorBase.cs.meta" />
+      <Content Include="RunTime\Linq\Average.cs.meta" />
+      <Content Include="RunTime\Linq\Average.tt" />
+      <Content Include="RunTime\Linq\Average.tt.meta" />
+      <Content Include="RunTime\Linq\Buffer.cs.meta" />
+      <Content Include="RunTime\Linq\Cast.cs.meta" />
+      <Content Include="RunTime\Linq\CombineLatest.cs.meta" />
+      <Content Include="RunTime\Linq\CombineLatest.tt" />
+      <Content Include="RunTime\Linq\CombineLatest.tt.meta" />
+      <Content Include="RunTime\Linq\Concat.cs.meta" />
+      <Content Include="RunTime\Linq\Contains.cs.meta" />
+      <Content Include="RunTime\Linq\Count.cs.meta" />
+      <Content Include="RunTime\Linq\Create.cs.meta" />
+      <Content Include="RunTime\Linq\DefaultIfEmpty.cs.meta" />
+      <Content Include="RunTime\Linq\Distinct.cs.meta" />
+      <Content Include="RunTime\Linq\DistinctUntilChanged.cs.meta" />
+      <Content Include="RunTime\Linq\Do.cs.meta" />
+      <Content Include="RunTime\Linq\ElementAt.cs.meta" />
+      <Content Include="RunTime\Linq\Empty.cs.meta" />
+      <Content Include="RunTime\Linq\Except.cs.meta" />
+      <Content Include="RunTime\Linq\First.cs.meta" />
+      <Content Include="RunTime\Linq\ForEach.cs.meta" />
+      <Content Include="RunTime\Linq\GroupBy.cs.meta" />
+      <Content Include="RunTime\Linq\GroupJoin.cs.meta" />
+      <Content Include="RunTime\Linq\Intersect.cs.meta" />
+      <Content Include="RunTime\Linq\Join.cs.meta" />
+      <Content Include="RunTime\Linq\Last.cs.meta" />
+      <Content Include="RunTime\Linq\LongCount.cs.meta" />
+      <Content Include="RunTime\Linq\Max.cs.meta" />
+      <Content Include="RunTime\Linq\Merge.cs.meta" />
+      <Content Include="RunTime\Linq\Min.cs.meta" />
+      <Content Include="RunTime\Linq\MinMax.cs.meta" />
+      <Content Include="RunTime\Linq\MinMax.tt" />
+      <Content Include="RunTime\Linq\MinMax.tt.meta" />
+      <Content Include="RunTime\Linq\Never.cs.meta" />
+      <Content Include="RunTime\Linq\OfType.cs.meta" />
+      <Content Include="RunTime\Linq\OrderBy.cs.meta" />
+      <Content Include="RunTime\Linq\Pairwise.cs.meta" />
+      <Content Include="RunTime\Linq\Publish.cs.meta" />
+      <Content Include="RunTime\Linq\Queue.cs.meta" />
+      <Content Include="RunTime\Linq\Range.cs.meta" />
+      <Content Include="RunTime\Linq\Repeat.cs.meta" />
+      <Content Include="RunTime\Linq\Return.cs.meta" />
+      <Content Include="RunTime\Linq\Reverse.cs.meta" />
+      <Content Include="RunTime\Linq\Select.cs.meta" />
+      <Content Include="RunTime\Linq\SelectMany.cs.meta" />
+      <Content Include="RunTime\Linq\SequenceEqual.cs.meta" />
+      <Content Include="RunTime\Linq\Single.cs.meta" />
+      <Content Include="RunTime\Linq\Skip.cs.meta" />
+      <Content Include="RunTime\Linq\SkipLast.cs.meta" />
+      <Content Include="RunTime\Linq\SkipUntil.cs.meta" />
+      <Content Include="RunTime\Linq\SkipUntilCanceled.cs.meta" />
+      <Content Include="RunTime\Linq\SkipWhile.cs.meta" />
+      <Content Include="RunTime\Linq\Subscribe.cs.meta" />
+      <Content Include="RunTime\Linq\Sum.cs.meta" />
+      <Content Include="RunTime\Linq\Sum.tt" />
+      <Content Include="RunTime\Linq\Sum.tt.meta" />
+      <Content Include="RunTime\Linq\Take.cs.meta" />
+      <Content Include="RunTime\Linq\TakeLast.cs.meta" />
+      <Content Include="RunTime\Linq\TakeUntil.cs.meta" />
+      <Content Include="RunTime\Linq\TakeUntilCanceled.cs.meta" />
+      <Content Include="RunTime\Linq\TakeWhile.cs.meta" />
+      <Content Include="RunTime\Linq\Throw.cs.meta" />
+      <Content Include="RunTime\Linq\ToArray.cs.meta" />
+      <Content Include="RunTime\Linq\ToDictionary.cs.meta" />
+      <Content Include="RunTime\Linq\ToHashSet.cs.meta" />
+      <Content Include="RunTime\Linq\ToList.cs.meta" />
+      <Content Include="RunTime\Linq\ToLookup.cs.meta" />
+      <Content Include="RunTime\Linq\ToObservable.cs.meta" />
+      <Content Include="RunTime\Linq\ToUniTaskAsyncEnumerable.cs.meta" />
+      <Content Include="RunTime\Linq\Union.cs.meta" />
+      <Content Include="RunTime\Linq\UniTask.Linq.asmdef" />
+      <Content Include="RunTime\Linq\UniTask.Linq.asmdef.meta" />
+      <Content Include="RunTime\Linq\UnityExtensions.meta" />
+      <Content Include="RunTime\Linq\UnityExtensions\EveryUpdate.cs.meta" />
+      <Content Include="RunTime\Linq\UnityExtensions\EveryValueChanged.cs.meta" />
+      <Content Include="RunTime\Linq\UnityExtensions\Timer.cs.meta" />
+      <Content Include="RunTime\Linq\Where.cs.meta" />
+      <Content Include="RunTime\Linq\Zip.cs.meta" />
+      <Content Include="RunTime\MoveNextSource.cs.meta" />
+      <Content Include="RunTime\PlayerLoopHelper.cs.meta" />
+      <Content Include="RunTime\PlayerLoopTimer.cs.meta" />
+      <Content Include="RunTime\Progress.cs.meta" />
+      <Content Include="RunTime\TaskPool.cs.meta" />
+      <Content Include="RunTime\TimeoutController.cs.meta" />
+      <Content Include="RunTime\TriggerEvent.cs.meta" />
+      <Content Include="RunTime\Triggers.meta" />
+      <Content Include="RunTime\Triggers\AsyncAwakeTrigger.cs.meta" />
+      <Content Include="RunTime\Triggers\AsyncDestroyTrigger.cs.meta" />
+      <Content Include="RunTime\Triggers\AsyncStartTrigger.cs.meta" />
+      <Content Include="RunTime\Triggers\AsyncTriggerBase.cs.meta" />
+      <Content Include="RunTime\Triggers\AsyncTriggerExtensions.cs.meta" />
+      <Content Include="RunTime\Triggers\MonoBehaviourMessagesTriggers.cs.meta" />
+      <Content Include="RunTime\Triggers\MonoBehaviourMessagesTriggers.tt" />
+      <Content Include="RunTime\Triggers\MonoBehaviourMessagesTriggers.tt.meta" />
+      <Content Include="RunTime\UniTask.asmdef" />
+      <Content Include="RunTime\UniTask.asmdef.meta" />
+      <Content Include="RunTime\UniTask.AsValueTask.cs.meta" />
+      <Content Include="RunTime\UniTask.Bridge.cs.meta" />
+      <Content Include="RunTime\UniTask.cs.meta" />
+      <Content Include="RunTime\UniTask.Delay.cs.meta" />
+      <Content Include="RunTime\UniTask.Factory.cs.meta" />
+      <Content Include="RunTime\UniTask.Run.cs.meta" />
+      <Content Include="RunTime\UniTask.Threading.cs.meta" />
+      <Content Include="RunTime\UniTask.WaitUntil.cs.meta" />
+      <Content Include="RunTime\UniTask.WhenAll.cs.meta" />
+      <Content Include="RunTime\UniTask.WhenAll.Generated.cs.meta" />
+      <Content Include="RunTime\UniTask.WhenAll.Generated.tt" />
+      <Content Include="RunTime\UniTask.WhenAll.Generated.tt.meta" />
+      <Content Include="RunTime\UniTask.WhenAny.cs.meta" />
+      <Content Include="RunTime\UniTask.WhenAny.Generated.cs.meta" />
+      <Content Include="RunTime\UniTask.WhenAny.Generated.tt" />
+      <Content Include="RunTime\UniTask.WhenAny.Generated.tt.meta" />
+      <Content Include="RunTime\UniTask.WhenEach.cs.meta" />
+      <Content Include="RunTime\UniTaskCompletionSource.cs.meta" />
+      <Content Include="RunTime\UniTaskExtensions.cs.meta" />
+      <Content Include="RunTime\UniTaskExtensions.Shorthand.cs.meta" />
+      <Content Include="RunTime\UniTaskExtensions.Shorthand.tt" />
+      <Content Include="RunTime\UniTaskExtensions.Shorthand.tt.meta" />
+      <Content Include="RunTime\UniTaskObservableExtensions.cs.meta" />
+      <Content Include="RunTime\UniTaskScheduler.cs.meta" />
+      <Content Include="RunTime\UniTaskSynchronizationContext.cs.meta" />
+      <Content Include="RunTime\UniTaskVoid.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.AssetBundleRequestAllAssets.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.AsyncGPUReadback.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.AsyncInstantiate.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.Jobs.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.MonoBehaviour.cs.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.tt" />
+      <Content Include="RunTime\UnityAsyncExtensions.tt.meta" />
+      <Content Include="RunTime\UnityAsyncExtensions.uGUI.cs.meta" />
+      <Content Include="RunTime\UnityAwaitableExtensions.cs.meta" />
+      <Content Include="RunTime\UnityBindingExtensions.cs.meta" />
+      <Content Include="RunTime\UnityWebRequestException.cs.meta" />
+      <Content Include="RunTime\_InternalVisibleTo.cs.meta" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
