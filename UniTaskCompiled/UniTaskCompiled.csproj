@@ -12,6 +12,7 @@
         <AssemblyName>UniTaskCompiled</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -325,7 +326,8 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Class1.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="CustomExtensions\GameObjectExtensions.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="RunTime\AsyncLazy.cs" />
         <Compile Include="RunTime\AsyncReactiveProperty.cs" />
         <Compile Include="RunTime\AsyncUnit.cs" />
